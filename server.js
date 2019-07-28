@@ -19,9 +19,9 @@ var app = express();
 
 app.use(logger("dev"));
 app.use(
-  bodyParser.urlencoded({
-    extended: false
-  })
+    bodyParser.urlencoded({
+        extended: false
+    })
 );
 
 // Use morgan logger for logging requests
@@ -35,8 +35,8 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/web-scraper", {
-  useNewUrlParser: true
+mongoose.connect(process.env.MONGODB_URI || "mongodb://user:password1@ds255917.mlab.com:55917/heroku_mmwrpvx9", {
+    useNewUrlParser: true
 });
 
 // put require at the end because it has to go through bodyParser first
@@ -44,5 +44,5 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/web-scraper", {
 require("./controllers/controller")(app);
 
 app.listen(PORT, function() {
-  console.log("Running on PORT: " + PORT);
+    console.log("Running on PORT: " + PORT);
 });
