@@ -1,0 +1,102 @@
+.slide-img {
+	width: 100%;
+	max-height: 750px;
+}
+
+.hover-slide {
+    position: absolute;
+    margin: 0 auto;
+    top: 85%;
+    z-index: 10;
+}
+
+.view-btn {
+	color: white;
+	background-color: darkgrey; 
+	border: none;
+}
+
+.article-image {
+	width: 100%;
+}
+
+.glyphicon {
+	color: grey;
+	margin-right: 2%;
+	font-size: 20px;
+}
+
+.glyphicon:hover {
+	color: darkred;
+}
+
+.icons {
+	text-align: right; 
+}
+
+#comment-area {
+	height: 100px;
+	width: 100%;
+}
+
+.notification {
+	z-index: 10;
+	color: white;
+	background-color: black; 
+	opacity: 0.5; 
+}
+
+.viewMore {
+	width: 100%;
+	background-color: orange; 
+	border: none;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.comment-remove {
+	float: right;
+}
+
+.wall { 
+	height: 350px;
+}
+
+@media screen and (max-width: 991px) {
+	.hover-slide {
+	  left: 44%;
+	}
+	.wall { 
+		height: 600px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.hover-slide {
+	  left: 42%;
+	  top: 82%;
+	}
+	.wall { 
+		height: 580px;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.hover-slide {
+	  left: 40%;
+	  top: 82%;
+	}
+	.wall { 
+		height: 500px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.hover-slide {
+	  left: 37%;
+	  top: 80%;
+	}
+	.wall { 
+		height: 420px;
+	}
+}

@@ -1,0 +1,92 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse" type="button">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/articles">NYT SCRAPER</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right collapse navbar-collapse" id="myNavbar">
+            <li class="active">
+                <a href="/articles">HOME</a>
+            </li>
+            <li>
+                <a href="/save">SAVED ARTICLES</a>
+            </li>
+            <li>
+                <a href="/scrape">GET NEWS</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        {{#each savedDoc}}
+            <div class="col-md-4">
+                <div class="panel panel-default wall">
+
+                    <h4 class="text-center">Headline</h4>
+                    <h3 class="text-center">{{ title }}</h3>
+                    <br>
+                        <br>
+                            <div class="icons" style="margin-right: 40%">
+                                <a href="{{ link }}">
+                                    <span class="glyphicon glyphicon-sunglasses" title="View Article"></span>
+                                </a>
+                                <a class="comment-btn" dataId="{{ _id }}">
+                                    <span class="glyphicon glyphicon-comment" title="Comment"></span>
+                                </a>
+                                <a class="remove-btn" href="/remove/{{ _id }}">
+                                    <span class="glyphicon glyphicon-trash" title="Remove Article"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+                <div class="modal fade" id="comment-modals">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="modal-title">Tell Us What You Think</h2>
+                                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="comment-form" method="POST">
+                                    <div id="author">
+                                        <label for="author">Your Name</label>
+                                        <br>
+                                            <input id="author-name" name="author" placeholder="ex. John Smith" type="text"></div>
+                                            <br>
+                                                <div id="comment">
+                                                    <label for="comment">Your Thoughts</label>
+                                                    <br>
+                                                        <textarea id="comment-area" name="comment"></textarea>
+                                                    </div>
+                                                    <br>
+                                                        <div>
+                                                            <input id="submit-btn" type="submit" value="Submit"></div>
+                                                        </form>
+                                                    </div>
+
+                                                    <div>
+                                                        <button class="viewMore">View Comments&nbsp;&nbsp;<span class="glyphicon glyphicon-new-window"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="modal fade" id="view-comments-modals">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-body" id="comment-insert"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
