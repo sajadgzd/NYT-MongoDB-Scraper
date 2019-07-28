@@ -11,8 +11,6 @@ var PORT = process.env.PORT || 3000;
 // Set mongoose to leverage built in JavaScript ES6 Promises
 mongoose.Promise = Promise;
 
-// // Launch App
-// var port = process.env.PORT || 3000;
 
 // Initialize Express for debugging & body parsing
 var app = express();
@@ -34,8 +32,9 @@ app.use(express.static("public"));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+// "mongodb://user:password1@ds255917.mlab.com:55917/heroku_mmwrpvx9"
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://user:password1@ds255917.mlab.com:55917/heroku_mmwrpvx9", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/web-scraper", {
     useNewUrlParser: true
 });
 
