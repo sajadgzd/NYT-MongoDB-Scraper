@@ -18,7 +18,8 @@ module.exports = function(app) {
     }
 
     app.get("/scrape", function(req, res) {
-        request("https://www.nytimes.com", (error, response, body) => {
+        request("https://www.nytimes.com/section/world?action=click&module=Well&pgtype=Homepage", (error, response, body) => {
+            // console.log(response.statusCode);
             if (!error && response.statusCode === 200) {
                 // Then, we load that into cheerio and save it to $ for a shorthand selector
                 const $ = cheerio.load(body);
@@ -27,7 +28,7 @@ module.exports = function(app) {
                 $('li.css-ye6x8s').each(function(i, element) {
                     // Save an empty result object
                     let result = {};
-
+                    console.log($(element));
                     // Add the text and href of every link, and summary and byline, saving them to object
                     result.title = $(element)
                         .find('div.css-4jyr1y')
